@@ -1,5 +1,4 @@
 import logo from '../logo.svg';
-import
 const MyClockImage = () => {
     return (
         <div>
