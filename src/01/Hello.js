@@ -1,6 +1,7 @@
 import './Hello.css';
 import logo from '../logo.svg';
 import '../App.css';
+import MyClockImage from '../02/MyClockImage';
 
 const Hello = () => {
     let n = '세현';
@@ -11,6 +12,7 @@ const Hello = () => {
                 <div>
                     <img src={logo} className='App-logo' alt='logo' />
                 </div>
+           
                 <footer>
                     <div>
                         <hgroup>
@@ -22,7 +24,7 @@ const Hello = () => {
             </article>
         </main>
 
-    );
+    ); 
 }
 
 export default Hello;
