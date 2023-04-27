@@ -1,0 +1,64 @@
+/* .hdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .mytd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mytr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+#td1 {
+
+  font-weight: bold;
+
+  color: darkcyan;
+}
+
+body {
+  box-sizing: border-box;
+
+}
+
+h1 {
+  text-align: center;
+}
+
+.a {
+  text-align: center;
+}
+
+.tdc {
+  text-align: center;
+}
+
+
+
+tfoot tr td {
+  text-align: center;
+  background-color:tan;
+  color: aliceblue;
+}
+
+thead {
+  
+  background-color:lightslategray;
+}
+
+thead th {
+  text-align: center;
+  color: aliceblue;
+}

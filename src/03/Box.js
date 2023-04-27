@@ -1,5 +1,5 @@
 import BoxRows from "./BoxRows1";
-import './Box.css';
+import './Box.module.css';
 const Box = () => {
 
     let mvl =
@@ -9,20 +9,17 @@ const Box = () => {
     return (
         <main className="cotainer">
             <article>
-                <header>일일 박스오피스</header>
-                <table>
-
+                <header><h1>일일 박스오피스</h1></header>
+                <table role="grid">
                     <thead>
                         <tr>
-                            <th scope="col">순위</th>
-                            <th scope="col">영화명</th>
-                            <th scope="col">매출액</th>
-                            <th scope="col">증감</th>
+                            <th scope="col" className="a">순위</th>
+                            <th scope="col" className="a">영화명</th>
+                            <th scope="col" className="a">매출액</th>
+                            <th scope="col" className="a">증감</th>
                         </tr>
                     </thead>
-
-                        <BoxRows mv={mvl} />
-                 
+                        <BoxRows mv={mvl} />                 
                 </table>
             </article>
         </main>

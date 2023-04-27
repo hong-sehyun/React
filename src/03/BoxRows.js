@@ -1,4 +1,4 @@
-import './Box.css';
+import './Box.module.css';
 //const BoxRows = (probs) => {
 const BoxRows = ({ mv }) => {
     //const mvl = [...probs.mv];
