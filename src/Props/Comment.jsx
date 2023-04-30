@@ -1,23 +1,18 @@
-import './Comment.css'
+import style from './Comment.module.css';
+import React from 'react';
 
-const Comment =(props) => {
-    return (
-        <div className='wrapper'>
-            <div className='imageContainer'>
+const Comment =(props) => (
+    <div className={style.wrapper}>
+        <div className={style.imageContainer}>
             <img
                 src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
-                className='image'
-            />
-
-            </div>
-            
-            <div className='contentContainer'>
-                <span className='nameText'>{props.name}</span>
-                <span className='commentText'>{props.comment}</span>
-            </div>
-
+                className={style.image} />
         </div>
-    );
 
-}
+        <div className={style.contentContainer}>
+            <span className={style.nameText}>{props.name}</span>
+            <span className={style.commentText}>{props.comment}</span>
+        </div>
+    </div>
+)
 export default Comment;
