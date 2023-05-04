@@ -1,7 +1,9 @@
 import dataTaccident from './dataTaccident.json';
 import TAccidentNav1 from './TAccidentNav1';
 import TAccidentNav2 from './TAccidentNav2';
+import TAccidentDetail from './TAccidentDetail';
 import { useState, useEffect } from 'react';
+import './TAccident.module.css';
 const TAccident = () => {
 
 
@@ -43,7 +45,7 @@ const TAccident = () => {
     const c2 = data.map((item) => [item.사고유형_대분류, item.사고유형_중분류]);
     //console.log('c2', c2);
 
-    const c3 = data.map((item) => [item.사고유형_대분류, item.사고유형_중분류, item.사고건수, item.경상자수, item.중상자수, item.사망자수, item.부상신고자수])
+    //const c3 = data.map((item) => [item.사고유형_대분류, item.사고유형_중분류, item.사고건수, item.경상자수, item.중상자수, item.사망자수, item.부상신고자수])
 
 
     const [sel1, setSel1] = useState(0);
@@ -57,29 +59,35 @@ const TAccident = () => {
     }, []);
 */
     useEffect(() => {
-        console.log('TAccident sel1 useEffect sel1',sel1);
+        // console.log('TAccident sel1 useEffect sel1',sel1);
     }, [sel1]);
 
     useEffect(() => {
-        console.log('TAccident sel2 useEffect se2',sel2);
+        // console.log('TAccident sel2 useEffect se2',sel2);
         let temp = data.filter((item) => 
         item.사고유형_대분류 === sel2[0] && item.사고유형_중분류 === sel2[1] ) ;
-        setSeld(temp)
-    }, [sel2]);
+        setSeld(temp[0])
+    }, [sel2, data]);
 
+    
     useEffect(() => {
-        console.log('TAccident seld useEffect seld',seld);
-        const c3arr = c3.filter((item) => item[0] === sel1 && item[1] === sel2);
-        let temp = data.filter((item) => 
-        item.사고유형_대분류 === seld[0] && item.사고유형_중분류 === seld[1]);
-        setSeld(temp)
+        // console.log('TAccident seld useEffect seld',seld);
+        
+        // let temp = data.filter((k) => 
+        // k.사고유형_대분류 === sel2[0] && k.사고유형_중분류 === sel2[1]);
+        // setSeld(temp)
     }, [seld]);
 
-    const btTag = c3arr.map((item) => 
-    <div key={item}>
-        {item[2]}
-    </div>
-    );
+
+
+    
+
+    // const btTag = c3arr.map((item) => 
+    // <div key={item}>
+    //      {item[2]}
+    // </div>
+    // );
+
 /*    
     useEffect(() => {
         console.log('TAccident sel1 useEffect',sel1);
@@ -93,10 +101,10 @@ const TAccident = () => {
                     <TAccidentNav2 c2 = {c2} sel1 = {sel1} sel2 = {sel2} setSel1 = {setSel1} setSel2 = {setSel2} />
                     
                 </header>
-                <div c2 = {c2} sel1 = {sel1} sel2 = {sel2} seld = {seld} setSel1 = {setSel1} setSel2 = {setSel2} setSeld = {setSeld}></div> 
-
-                {btTag}
-
+                {/* <detail c2 = {c2} sel1 = {sel1} sel2 = {sel2} seld = {seld} setSel1 = {setSel1} setSel2 = {setSel2} setSeld = {setSeld}></detail>  */}
+            
+                    {seld && <TAccidentDetail seld = {seld} />}
+              
             </article>
         </main>
 

@@ -1,4 +1,5 @@
 import TAccident from "./TAccident";
+import style from './TAccident.module.css';
 const TAccidentNav2 = ({ c2, sel1, sel2, setSel2 }) => {
     //console.log(c2)
     // const show = (item) => {
@@ -7,8 +8,8 @@ const TAccidentNav2 = ({ c2, sel1, sel2, setSel2 }) => {
 
     const c2arr = c2.filter((item) => item[0] === sel1);
      const btTag = c2arr.map((item) =>
-     <li key={item}>
-         <button onClick={() => setSel2(item)}>{item[1]}</button>
+     <li key={item} >
+         <button onClick={() => setSel2(item) }  className={style.bt2}>{item[1]}</button>
      </li>
      );
 
