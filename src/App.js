@@ -4,7 +4,8 @@
 //import Box from './03/Box';
 //import MyDiv from './04/MyDiv';
 //import Frcst from "./05/Frcst";
-import TAccident from "./06/TAccident";
+//import TAccident from "./06/TAccident";
+import MyRef from "./07/MyRef";
 
 
 
@@ -22,7 +23,8 @@ function App() {
 //   <MyClock />
 //<MyDiv/>
 //<Frcst />
-<TAccident />
+//<TAccident />
+<MyRef />
 
 
 //<Library />
