@@ -1,0 +1,40 @@
+.btDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btDiv > button {
+    margin: 5px;
+}
+
+#ft {
+    display: flex;
+    align-content:flex-start;
+    display:block;   
+}
+
+.sp1 {
+    
+    font-size: small;
+
+    text-align: center;
+    border: 4px ;
+    margin: 2px;
+    padding: 2px;
+    padding-right: 4px;
+
+    flex-direction : row;
+
+    height: 20;
+    border-radius: 8px;
+    width: 50px;
+    color: aliceblue;
+    background-color: blueviolet;
+}
+
+#sp2 {
+    font-weight: bolder;
+    
+    
+}
