@@ -1,4 +1,4 @@
-//import './App.css';
+import './App.css';
 //import Hello from './01/Hello';
 //import MyClock from './02/MyClock';
 //import Box from './03/Box';
@@ -8,8 +8,8 @@
 //import MyRef from "./07/MyRef";
 
 import Gallery from "./08/Gallery";
-
-
+//import Gallery2 from "./08 copy/Gallery2";
+//import Ex1 from "./08 copy/Ex1";
 
 
 //import Library from "./RenderingElements/Library";
@@ -28,7 +28,8 @@ function App() {
 //<TAccident />
 //<MyRef />
 <Gallery />
-
+//<Gallery2 />
+//<Ex1 />
 
 //<Library />
 //<CommentList />
