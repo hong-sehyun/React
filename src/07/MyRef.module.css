@@ -1,0 +1,10 @@
+.sp {
+    height: auto;
+    border-radius: 15px;
+    padding: 3%;
+    width: auto;
+    color: white;
+    background-color: #ca4672;
+    cursor: pointer;
+    font-weight: bold;
+}

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import style from './MyRef.module.css';
 
 const MyRef = () => {
     const txtref = useRef();
@@ -8,18 +9,28 @@ const MyRef = () => {
     //페이지 로딩 즉시 입력창을 깜빡거리게 하는 법
     useEffect(() => {
         txtref.current.focus();
-    }, []);
+    }, []); //대괄호 : 맨처음 한번만 실행됨 
 
-    
+
 
     const additem = (e) => {
         e.preventDefault();
-        itemarr.current = [...itemarr.current, itemarr.current.values]
+        itemarr.current = [...itemarr.current, txtref.current.value];
+        //itemarr.current = [...new Set(itemarr.current)];
+        itemarr.current = [...itemarr.current];
+
+
+        let tempTag = itemarr.current.map((item, idx) => <span key={'sp'+idx} className={style.sp}>{item}</span>);
+        setItemTag(tempTag);
         console.log("add", itemarr.current);
+        rstitem();
     }
 
     const rstitem = () => {
-        console.log("rst");
+        txtref.current.value = '';
+        txtref.current.focus();
+
+        console.log("rstitem");
     }
 
     return (
@@ -40,8 +51,8 @@ const MyRef = () => {
                     </form>
              
                 </header>
-                <div className="grid">
-                    
+                <div>
+                    {itemTag}
                 </div>
             </article>
         </main>

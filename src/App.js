@@ -5,7 +5,9 @@
 //import MyDiv from './04/MyDiv';
 //import Frcst from "./05/Frcst";
 //import TAccident from "./06/TAccident";
-import MyRef from "./07/MyRef";
+//import MyRef from "./07/MyRef";
+
+import Gallery from "./08/Gallery";
 
 
 
@@ -19,12 +21,13 @@ import MyRef from "./07/MyRef";
 
 function App() {
   return (
-//   <Box />
+// <Box />
 //   <MyClock />
 //<MyDiv/>
 //<Frcst />
 //<TAccident />
-<MyRef />
+//<MyRef />
+<Gallery />
 
 
 //<Library />
