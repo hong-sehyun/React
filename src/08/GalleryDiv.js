@@ -11,8 +11,7 @@ const GalleryDiv = ({ dt }) => {
         //        hashTags = hashTags.map((info) => <span>info.split(' ')</span>);
         hashTags = hashTags.map((info, idx) =>
             <span key={info.galCreatedtime + '-' + idx} className={style.sp1}>
-
-                {/* <span key={info.galModifiedtime + '-' + idx} id={style.sp2}> # </span> */}
+                {/* <span key={info.galModifiedtime + '-' + idx} id={style.sp2}> # </span>  */}
                 # {info}
             </span>
         );
@@ -21,17 +20,21 @@ const GalleryDiv = ({ dt }) => {
         infos.push(
             <article key={info.galContentId}>
                 <header>
-                    <span>{info.galTitle}</span>
-                    <span> {info.galPhotographyLocation}</span>
+                    <div className='grid'>
+                    <span className={style.infosp1}>{info.galTitle}</span>
+                    <span className={style.infosp2}> {info.galPhotographyLocation}</span>
+                    </div>
                 </header>
                 <div>
                     <img src={info.galWebImageUrl}>
                     </img>
                 </div>
-                <footer className={style.container} id={style.ft}>
+                {/* <footer className={style.container} id={style.ft}> */}
+                <footer >
+                    <div className={style.spd}>
 
                     {hashTags}
-
+                    </div>
                 </footer>
             </article>
         );
