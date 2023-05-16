@@ -1,4 +1,4 @@
-//import './App.css';
+import './App.css';
 //import Hello from './01/Hello';
 //import MyClock from './02/MyClock';
 //import Box from './03/Box';
@@ -30,13 +30,15 @@ function App() {
 //<TAccident />
 //<MyRef />
 <Gallery />
-
+//<Gallery2 />
+//<Ex1 />
 
 //<Library />
 //<CommentList />
 //<NotificationList />
 //<Counter />
 //<ex01 />
+
 
 
   );
