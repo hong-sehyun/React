@@ -62,3 +62,8 @@ thead th {
   text-align: center;
   color: aliceblue;
 }
+
+.h1 {
+  font-size:x-large;
+  font-weight: bolder;
+}

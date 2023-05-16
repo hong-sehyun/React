@@ -7,7 +7,9 @@
 //import TAccident from "./06/TAccident";
 //import MyRef from "./07/MyRef";
 
-import Gallery from "./08/Gallery";
+//import Gallery from "./08/Gallery";
+
+import Gallery from "./09/Gallery";
 
 
 
