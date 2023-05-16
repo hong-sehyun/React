@@ -1,4 +1,5 @@
 import GalleryArticle from "./GalleryArticle";
+
 const GalleryView = ({ content }) => {
 
     //content(array)는 오브젝트임.
