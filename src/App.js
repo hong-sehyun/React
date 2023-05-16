@@ -1,7 +1,7 @@
 import './App.css';
 //import Hello from './01/Hello';
 //import MyClock from './02/MyClock';
-import Box from './03/Box';
+//import Box from './03/Box';
 //import MyDiv from './04/MyDiv';
 //import Frcst from "./05/Frcst";
 //import TAccident from "./06/TAccident";
@@ -9,7 +9,7 @@ import Box from './03/Box';
 
 //import Gallery from "./08/Gallery";
 
-//import Gallery from "./09/Gallery";
+import Gallery from "./09/Gallery";
 
 
 
@@ -23,13 +23,13 @@ import Box from './03/Box';
 
 function App() {
   return (
- <Box />
+// <Box />
 //   <MyClock />
 //<MyDiv/>
 //<Frcst />
 //<TAccident />
 //<MyRef />
-//<Gallery />
+<Gallery />
 //<Gallery2 />
 //<Ex1 />
 
