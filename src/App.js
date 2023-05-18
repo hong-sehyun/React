@@ -6,11 +6,10 @@ import './App.css';
 //import Frcst from "./05/Frcst";
 //import TAccident from "./06/TAccident";
 //import MyRef from "./07/MyRef";
-
 //import Gallery from "./08/Gallery";
-
-import Gallery from "./09/Gallery";
-
+//import Gallery from "./09/Gallery";
+//import Fcst from './10/Fcst';
+import RouteMain from './10/RouteMain';
 
 
 
@@ -29,9 +28,11 @@ function App() {
 //<Frcst />
 //<TAccident />
 //<MyRef />
-<Gallery />
+//<Gallery />
 //<Gallery2 />
 //<Ex1 />
+//<Fcst />
+<RouteMain />
 
 //<Library />
 //<CommentList />
