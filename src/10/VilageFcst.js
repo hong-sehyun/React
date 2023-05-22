@@ -1,5 +1,7 @@
 import React from 'react'
 import FcstTable from './FcstTable'
+import { useParams } from 'react-router-dom'
+
 function VilageFcst() {
     return (
         <main>

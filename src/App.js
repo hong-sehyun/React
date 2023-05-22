@@ -4,12 +4,12 @@ import './App.css';
 //import Box from './03/Box';
 //import MyDiv from './04/MyDiv';
 //import Frcst from "./05/Frcst";
-//import TAccident from "./06/TAccident";
+import TAccident from "./06/TAccident";
 //import MyRef from "./07/MyRef";
 //import Gallery from "./08/Gallery";
 //import Gallery from "./09/Gallery";
 //import Fcst from './10/Fcst';
-//import RouteMain from './10_1/RouteMain';
+import RouteMain from './10_1/RouteMain';
 //import VilageFcst from './10/VilageFcst';
 import Fcst from './10/Fcst';
 
@@ -37,6 +37,8 @@ function App() {
 //<Fcst />
 //<RouteMain />
 <Fcst />
+
+
 
 //<Library />
 //<CommentList />
