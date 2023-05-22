@@ -33,10 +33,12 @@ function UltraSrtFcst() {
 
 // getsel area, x, y
 
-
+/*
   useEffect(() => {
     console.log("useEffect", items);
   }, [items]);
+*/
+
 
   const getUtDt = (dt, x, y) => {
     let apikey = 'dL2mQ3OFiO%2FkfihiQfLLxHCDmpSqXLfejo6d5WhFD%2FWYBPTd2Z5J5b0UL9n4nn%2BTTHig6ZSVnRKZfLPoV%2FUZxQ%3D%3D';
@@ -58,7 +60,8 @@ function UltraSrtFcst() {
 
   useEffect(() => {
     console.log("useEffect url", getUtDt);
-  }, []);
+    getUtDt(dt, x, y);
+  }, [items]);
 
   /*
   const tagkey = ['category', 'fcstDate', 'fcstTime', 'fcstValue'];

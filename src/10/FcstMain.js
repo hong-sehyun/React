@@ -95,7 +95,7 @@ const getSel = () => {
             </div>
             <footer>
                 <div className="grid">
-                    <Link to={`/ultra/${dt}/${area}/${x}/${y}`} role='button' onClick={getUtDt}>초단기예보</Link>
+                    <Link to={`/ultra/${dt}/${area}/${x}/${y}`} role='button' >초단기예보</Link>
                     <Link to={`/vilage/${dt}/${area}/${x}/${y}`} role='button'>단기예보</Link>
                 </div>
             </footer>
