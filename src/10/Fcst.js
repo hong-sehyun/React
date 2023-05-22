@@ -1,37 +1,29 @@
-import React from 'react'
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import VilageFcst from './VilageFcst';
+import UltraSrtFcst from './UltraSrtFcst';
+import FcstNav from './FcstNav';
+import FcstMain from './FcstMain';
 
-function Fcst() {
+const Fcst = () => {
 
 
     return (
+        <BrowserRouter>
+            <main className='container'>
+                <FcstNav />
+                <Routes>
+                    <Route path='/' element={<FcstMain />} />
+                    <Route path='/vilage' element={<VilageFcst />} />
+                    <Route path='/ultra' element={<UltraSrtFcst />} />
+                </Routes>
+            </main>
 
-        <main className='container'>
+        </BrowserRouter>
 
-            <div className='grid'>
-                <div><h3>기상청 단기예보</h3></div>
-                <div>
-                <button>Button</button>
-                </div>
-            </div>
-            <article>
-                <header>
-                    <h1>단기예보 선택</h1>
-                </header>
-                <div className='grid'>
-                    
-                        <input type="date" id="date" name="date" />
 
-                    <div>
 
-                        <select id="fruit" required>
-                            <option value="" selected>선택</option>
-                            {/*<option>…</option>*/}
-                        </select>
-                    </div>
-                </div>
-            </article>
 
-        </main>
     )
 }
 

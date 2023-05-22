@@ -9,7 +9,10 @@ import './App.css';
 //import Gallery from "./08/Gallery";
 //import Gallery from "./09/Gallery";
 //import Fcst from './10/Fcst';
-import RouteMain from './10/RouteMain';
+//import RouteMain from './10_1/RouteMain';
+//import VilageFcst from './10/VilageFcst';
+import Fcst from './10/Fcst';
+
 
 
 
@@ -32,7 +35,8 @@ function App() {
 //<Gallery2 />
 //<Ex1 />
 //<Fcst />
-<RouteMain />
+//<RouteMain />
+<Fcst />
 
 //<Library />
 //<CommentList />
