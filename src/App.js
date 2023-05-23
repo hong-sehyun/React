@@ -4,14 +4,21 @@ import './App.css';
 //import Box from './03/Box';
 //import MyDiv from './04/MyDiv';
 //import Frcst from "./05/Frcst";
-//import TAccident from "./06/TAccident";
+import TAccident from "./06/TAccident";
 //import MyRef from "./07/MyRef";
 //import Gallery from "./08/Gallery";
 //import Gallery from "./09/Gallery";
 //import Fcst from './10/Fcst';
+<<<<<<< HEAD
 //import RouteMain from './10/RouteMain';
 //import Fcst from './10/Fcst';
 import Exe01 from './10/Exe01';
+=======
+import RouteMain from './10_1/RouteMain';
+//import VilageFcst from './10/VilageFcst';
+import Fcst from './10/Fcst';
+//import Fcst from './10 copy/Fcst';
+>>>>>>> 24356c37131a84fd3f52b3aa0791ba6bc182d50b
 
 
 
@@ -35,10 +42,14 @@ function App() {
 //<Ex1 />
 //<Fcst />
 //<RouteMain />
+<<<<<<< HEAD
 //<Fcst />
 
 <Exe01 />
 
+=======
+<Fcst />
+>>>>>>> 24356c37131a84fd3f52b3aa0791ba6bc182d50b
 
 
 

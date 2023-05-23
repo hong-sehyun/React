@@ -45,9 +45,6 @@ const TAccident = () => {
     const c2 = data.map((item) => [item.사고유형_대분류, item.사고유형_중분류]);
     //console.log('c2', c2);
 
-    //const c3 = data.map((item) => [item.사고유형_대분류, item.사고유형_중분류, item.사고건수, item.경상자수, item.중상자수, item.사망자수, item.부상신고자수])
-
-
     const [sel1, setSel1] = useState(0);
     const [sel2, setSel2] = useState([]);
     const [seld, setSeld] = useState([]);
@@ -59,11 +56,11 @@ const TAccident = () => {
     }, []);
 */
     useEffect(() => {
-        // console.log('TAccident sel1 useEffect sel1',sel1);
+        console.log('TAccident sel1 useEffect sel1',sel1);
     }, [sel1]);
 
     useEffect(() => {
-        // console.log('TAccident sel2 useEffect se2',sel2);
+        console.log('TAccident sel2 useEffect se2',sel2);
         let temp = data.filter((item) => 
         item.사고유형_대분류 === sel2[0] && item.사고유형_중분류 === sel2[1] ) ;
         setSeld(temp[0])
@@ -71,7 +68,7 @@ const TAccident = () => {
 
     
     useEffect(() => {
-        // console.log('TAccident seld useEffect seld',seld);
+         console.log('TAccident seld useEffect seld',seld);
         
         // let temp = data.filter((k) => 
         // k.사고유형_대분류 === sel2[0] && k.사고유형_중분류 === sel2[1]);
