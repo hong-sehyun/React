@@ -16,8 +16,8 @@ import Exe01 from './10/Exe01';
 
 import RouteMain from './10_1/RouteMain';
 //import VilageFcst from './10/VilageFcst';
-import Fcst from './10/Fcst';
-//import Fcst from './10 copy/Fcst';
+//import Fcst from './10/Fcst';
+import Fcst from './10 copy/Fcst';
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FcstTable from './FcstTable';
 import { useParams } from 'react-router-dom';
+import code from './getcode.json';
 
 function UltraSrtFcst() {
 console.log("useParams",useParams());
@@ -11,6 +12,7 @@ console.log("useParams",useParams());
 
 
   const [datas, setDatas] = useState();
+  const [dataTag, setDataTag] = useState();
 
   useEffect(() => {
     console.log("useEffect", datas);
@@ -37,6 +39,38 @@ console.log("useParams",useParams());
   }, []);
   //datas = [...new Set(datas)];
  
+  useEffect(()=>{
+
+    if (!datas) return; 
+
+    console.log("datas", datas);
+    //8개 나오도록
+    // i : Object, n : index 
+    // map에서 변수 2개 들어가면 뒤가 index
+    let temp = datas.map((i,n) =>
+        //console.log(`i=${i} n=${n}`)
+        <div className="w2div" key={"w2div" + n}>
+            <span className="sp0">{code[i.category][0]}</span>
+            <span className="sp1">{i.obsrValue}</span>
+            <span className="sp2">{code[i.category][1]}</span>
+        </div>
+    );
+    setDataTag(temp);
+
+    /*
+    temp 없이 setDataTag에 바로 넣어도 됨
+    setItemTag(
+        items.map((i,n) =>
+        <div className="w2div">
+            <span className="sp0">{i.category}</span>
+            <span className="sp1">{i.obsrValue}</span>
+            <span className="sp2">{i.category}</span>
+        </div>
+    );
+    */
+}, [datas]);
+
+
 
 
   return (
@@ -46,6 +80,7 @@ console.log("useParams",useParams());
 
         {/* {items && <FcstTable content={items} />} */}
         {datas && <FcstTable datas={datas} gubun='초단기예보'/>}
+        {datas && dataTag}
         <table>
           <tbody>
           
