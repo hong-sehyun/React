@@ -80,7 +80,7 @@ console.log("useParams",useParams());
 
         {/* {items && <FcstTable content={items} />} */}
         {datas && <FcstTable datas={datas} gubun='초단기예보'/>}
-        {datas && dataTag}
+        {datas }
         <table>
           <tbody>
           
