@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FcstTable = ({datas, gubun}) => {
+const FcstTable = () => {
 
   
   // const tags = [];

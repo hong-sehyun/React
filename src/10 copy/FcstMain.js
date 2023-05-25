@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-
+import styles from './Fcst.module.css';
 import xy from './getxy.json';
 
 function FcstMain() {
@@ -75,13 +75,17 @@ const getSel = () => {
             .catch((err) => console.log(err))
     }
 */    
-    
+//console.log("area", area);   
     
 
 
     return(
-        <article>
-            <header><h1>단기예보 정보 선택</h1></header>
+        <main className={styles.main}>
+        <article className={styles.article}>
+            <div className="container" id={styles.timage}>
+                <img src={require("../img/titleFcst.png")} />
+            </div>
+            {/* <header><h1>단기예보 정보 선택</h1></header> */}
             <div className='grid'>
                 <div>
                 <input ref={txt1} type='date' id='dt' name='dt' onChange={() => getDt()}/>
@@ -95,11 +99,12 @@ const getSel = () => {
             </div>
             <footer>
                 <div className="grid">
-                    <Link to={`/ultra/${dt}/${area}/${x}/${y}`} role='button' onChange={() => {}}>초단기예보</Link>
-                    <Link to={`/vilage/${dt}/${area}/${x}/${y}`} role='button'>단기예보</Link>
+                    <Link to={`/ultra/${dt}/${area}/${x}/${y}`} role='button' className="outline" id={styles.bt1} onChange={() => {}}>초단기예보</Link>
+                    <Link to={`/vilage/${dt}/${area}/${x}/${y}`} role='button' className="outline" id={styles.bt2}>단기예보</Link>
                 </div>
             </footer>
         </article>
+        </main>
     );
 }
 

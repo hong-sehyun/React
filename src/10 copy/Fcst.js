@@ -4,6 +4,7 @@ import VilageFcst from './VilageFcst';
 import UltraSrtFcst from './UltraSrtFcst';
 import FcstNav from './FcstNav';
 import FcstMain from './FcstMain';
+                        import styles from './Fcst.module.css';
 
 const Fcst = () => {
     return (
