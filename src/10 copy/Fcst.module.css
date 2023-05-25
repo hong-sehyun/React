@@ -5,12 +5,27 @@
     background-size: cover;
 }
 
-#bt1 {
+#homebt {
     border-color: #8A9CB7;
     border-radius: 20px;
+    border: 2px solid;
+    color: #8A9CB7;
+    font-weight: bold; 
 }
 
 #bt2 {
     border-color: #8A9CB7;
-    border-radius: 20px;                    
+    border-radius: 20px;
+    border: 2px solid;
+    color: #8A9CB7;
+    font-weight: bold;                    
+}
+
+#bt1 {
+
+    background-color: #8A9CB7;
+    border-color: #8A9CB7;
+    border-radius: 20px;
+    font-weight: bold;  
+    color: white;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import FcstTable from './FcstTable';
 import { useParams } from 'react-router-dom';
 import code from './getcode.json';
@@ -17,6 +17,8 @@ const UltraSrtFcst = () => {
   const [datas, setDatas] = useState();
   const [dataTag, setDataTag] = useState();
   const [opTags, setOpTags] = useState();
+
+  const selhr = useRef();
 
   useEffect(() => {
     console.log("useEffect", datas);
@@ -69,10 +71,13 @@ const UltraSrtFcst = () => {
   }, []);
 
 //시간 선택
-const hourTag= [];
+const hr= [];
   for(let i = 1; i <24; i=i+1) {
-    hourTag.push(  <option value={i}>{i}</option>);  
+    hr.push(  <option value={i}>{i}</option>);  
   }
+
+console.log("selhr", selhr, hr);
+
 
   
 
@@ -134,12 +139,12 @@ const hourTag= [];
           <div className='grid'>
           <div><h1>{gubun}</h1></div>
           <div className='grid'>
-                <select>
+                <select ref={selhr}>
                   <option value=''>시</option> 시
                   {/*      {ops}  */}
-                  {hourTag}
+                  {hr}
                 </select>
-                <select>
+                <select ref={selhr} >
                   <option value=''>분</option> 분
                   <option value='00'>00</option>
                   <option value='30'>30</option>
