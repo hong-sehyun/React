@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import code from './getcode.json';
 
 function UltraSrtFcst() {
-console.log("useParams",useParams());
+  console.log("useParams", useParams());
   const dt = useParams().dt;
   const x = useParams().x;
   const y = useParams().y;
@@ -19,11 +19,16 @@ console.log("useParams",useParams());
   }, [datas]);
 
 
+  //예보구분 변수 받기
+  let gubunurl = 'getUltraSrtFcst';
+  let gubun = null;
+  if (gubunurl === 'getUltraSrtFcst') {gubun = '초단기예보';}
+  else {gubun = '단기예보';}
+
   useEffect(() => {
     let apikey = 'dL2mQ3OFiO%2FkfihiQfLLxHCDmpSqXLfejo6d5WhFD%2FWYBPTd2Z5J5b0UL9n4nn%2BTTHig6ZSVnRKZfLPoV%2FUZxQ%3D%3D';
-
     let url = 'https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/';
-    url = url + 'getUltraSrtFcst';
+    url = url + `${gubunurl}`;
     url = url + `?serviceKey=${apikey}`;
     url = url + `&numOfRows=60&pageNo=1`;
     url = url + `&base_date=${dt}&base_time=0600`;
@@ -33,42 +38,54 @@ console.log("useParams",useParams());
 
     fetch(url)
       .then((resp) => resp.json())
-      .then((data) => setDatas(data.response.body.items))
+      .then((data) => setDatas(data.response.body.items.item))
       .catch((err) => console.log(err));
-  
+
   }, []);
-  //datas = [...new Set(datas)];
+
+
+  
+
+
+
+  useEffect(() => {
+    if (!datas) return;
+
+
+
+  //중복값 제거
+  //set 사용하기
+  // const datas1 = [...new Set( datas.map(k => k.category) )]; << 배열 전체가 아닌 category만 찍힘
+
+  //filter, findIndex 사용하기(성공!)
+  const datas1 = datas.filter((y, i) => datas.findIndex(x=>x.category === y.category) === i);
+
+  
+  console.log("datas1", datas1);
+  
  
-  useEffect(()=>{
-
-    if (!datas) return; 
-
-    console.log("datas", datas);
-    //8개 나오도록
-    // i : Object, n : index 
-    // map에서 변수 2개 들어가면 뒤가 index
-    // let temp = datas.map((i,n) =>
-    //     //console.log(`i=${i} n=${n}`)
-    //     <div className="w2div" key={"w2div" + n}>
-    //         <span className="sp0">{code[i.category][0]}</span>
-    //         <span className="sp1">{i.obsrValue}</span>
-    //         <span className="sp2">{code[i.category][1]}</span>
-    //     </div>
-    // );
-    // setDataTag(temp);
-
-    
-    //temp 없이 setDataTag에 바로 넣어도 됨
     setDataTag(
-      datas.map((i) =>
-        <tr>
-            <td>{i.category}</td>
-            <td>{i.obsrValue}</td>
-            <td>{i.category}</td>
+
+      
+      datas1.map((k, idx) => {
+        //category코드 변환
+        let temp = code.filter(c => c.항목값 === k.category && c.예보구분 === gubun);
+        let newcate = temp[0].항목명;
+
+        return (
+        <tr className='trd' key={'trd' + idx}>
+          <td >{newcate}</td>
+          <td>{k.fcstDate}</td>
+          <td>{k.fcstTime}</td>
+          <td>{k.fcstValue}</td>
         </tr>
-    ));
-    
-}, [datas]);
+        );
+      }
+       
+      )
+
+    );
+  }, [datas, gubun]);
 
 
 
@@ -77,13 +94,12 @@ console.log("useParams",useParams());
     <main>
       <article>
         <header>{area}</header>
-
-        {/* {items && <FcstTable content={items} />} */}
-        {datas && <FcstTable datas={datas} gubun='초단기예보'/>}
-        {dataTag}
         <table>
+          <thead>
+            {datas && <FcstTable datas={datas} gubun={gubun} />}
+          </thead>
           <tbody>
-          
+            {dataTag}
           </tbody>
         </table>
       </article>
