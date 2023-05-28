@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import xy from './getxy.json';
+import styles from './Fcst.module.css'
 
 function FcstMain() {
     //지역선택
@@ -14,20 +15,33 @@ function FcstMain() {
 
     //state 변수
     const [dt, setDt] = useState() ;
+    const [hour, setHour] = useState() ;
+    const [minute, setMinute] = useState() ;
     //const [code, setCode] = useState() ;
     const [area, setArea] = useState() ;
     const [x, setX] = useState() ;
     const [y, setY] = useState() ;
 
+    
+
     //입력 값을 가져오기 위한 ref변수
     const txt1 = useRef();
     const sel1 = useRef();
-
-
+    const selhr = useRef();
+    const selmin = useRef();
     //dt가 변경되었을때 
     useEffect(()=>{        
         console.log(dt);
     }, [dt]) ;
+
+    useEffect(()=>{        
+        console.log(hour);
+    }, [hour]) ;
+
+    useEffect(()=>{        
+        console.log(minute);
+    }, [minute]) ;
+
 
     //데이터 받아오기
     //http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?
@@ -45,6 +59,17 @@ function FcstMain() {
     setDt(tdt);
 }
 
+const getHour = () => {
+    let tmphr = selhr.current.value ;  
+    if(tmphr < 10) tmphr = "0" + tmphr;
+    setHour(tmphr);
+
+}
+const getMin = () => {
+    let tmpmin = selmin.current.value ;
+    setMinute(tmpmin);
+}
+
 const getSel = () => {
     let temp = xy.filter((item) => item["행정구역코드"] === parseInt(sel1.current.value))[0] ;
     console.log(temp);
@@ -53,7 +78,25 @@ const getSel = () => {
     setY(temp["격자 Y"]);
 }
 
+//시간 선택
+const hr= [];
+  for(let i = 1; i <24; i=i+1) {    
+    if (i < 10) 
+    hr.push(  <option value={i}>0{i}</option>);  
+    else hr.push(  <option value={i}>{i}</option>);  
+  }
+console.log("selhr", selhr, hr);
 
+
+//분 선택
+const min= [];
+  for(let i = 1; i <24; i=i+1) {
+    min.push(  <option value={i}>{i}</option>);  
+  }
+
+console.log("selmin", selmin, min);
+
+  
 
 /*    
    const getUtDt = (dt, x, y) => {
@@ -80,22 +123,39 @@ const getSel = () => {
 
     return(
         <article>
-            <header><h1>단기예보 정보 선택</h1></header>
+            {/* <header><h1>단기예보 정보 선택</h1></header> */}
+            <div>
+                <img src={require("../img/titleFcst.png")} />
+            </div>
             <div className='grid'>
                 <div>
                 <input ref={txt1} type='date' id='dt' name='dt' onChange={() => getDt()}/>
                 </div>
-                <div>
-                <select ref={sel1} id='sel' name='sel' onChange={() => getSel()}>
-                    <option value=''>선택</option>
-                    {ops}
-                </select>
+
+                <div className='grid'>
+                    <select ref={selhr} onChange={() => getHour()}>
+                        <option value=''>시</option> 시
+                        {hr}
+                    </select>
+                    <select ref={selmin} onChange={() => getMin()}>
+                        <option value=''>분</option> 분
+                        <option value='00'>00</option>
+                        <option value='30'>30</option>
+                    </select>
                 </div>
+
+                <div>
+                    <select ref={sel1} id='sel' name='sel' onChange={() => getSel()}>
+                        <option value=''>지역 선택</option>
+                        {ops}
+                    </select>
+                </div>
+                
             </div>
             <footer>
                 <div className="grid">
-                    <Link to={`/ultra/${dt}/${area}/${x}/${y}`} role='button' onChange={() => {}}>초단기예보</Link>
-                    <Link to={`/vilage/${dt}/${area}/${x}/${y}`} role='button'>단기예보</Link>
+                    <Link to={`/ultra/${dt}/${hour}/${minute}/${area}/${x}/${y}`} role='button' onChange={() => {}} className="outline" id={styles.bt1}>초단기예보</Link>
+                    <Link to={`/vilage/${dt}/${hour}/${minute}/${area}/${x}/${y}`} role='button' className="outline" id={styles.bt2}>단기예보</Link>
                 </div>
             </footer>
         </article>

@@ -7,6 +7,8 @@ import styles from './Fcst.module.css';
 const VilageFcst = () => {
   console.log("useParams", useParams());
   const dt = useParams().dt;
+  const hour = useParams().hour;
+  const minute = useParams().minute;
   const x = useParams().x;
   const y = useParams().y;
   const area = useParams().area;
@@ -33,7 +35,7 @@ const VilageFcst = () => {
     url = url + `${gubunurl}`;
     url = url + `?serviceKey=${apikey}`;
     url = url + `&numOfRows=900&pageNo=1`;
-    url = url + `&base_date=${dt}&base_time=0500`;
+    url = url + `&base_date=${dt}&base_time=${hour}${minute}`;
     url = url + `&nx=${x}&ny=${y}`;
     url = url + '&dataType=json';
     console.log(url);
@@ -66,7 +68,9 @@ const VilageFcst = () => {
 
   
   console.log("datas1", datas1);
-  
+
+  let skyobj = {'1':'☀', '2' : '⛅', '3' : '☁', '4' : '🌫'}
+  let ptyobj = {'0':'없음', '1':'비', '2' : '비/눈', '3' : '눈', '4' : '소나기', '5':'빗방울', '6':'빗방울눈날림', '7':'눈날림'}
 
   //시간 옵션 태그 만들기!!!
   //일 최고기온 최저기온은 시간이 정해져 있어서 통째로 함수를 만들면 안됨
@@ -78,14 +82,18 @@ const VilageFcst = () => {
       datas1.map((k, idx) => {
         //category코드 변환
         let temp = code.filter(c => c.항목값 === k.category && c.예보구분 === gubun);
-        let newcate = temp[0].항목명;
 
         return (
         <tr className='trd' key={'trd' + idx}>
-          <td >{newcate}</td>
+          <td >{temp[0].항목명}</td>
           <td>{k.fcstDate}</td>
-          <td>{k.fcstTime}</td>
-          <td>{k.fcstValue}</td>
+          {/* <td>{k.fcstTime}</td> */}
+          <td>{hour}시{minute}분</td>
+          <td>
+              {(k.category === 'SKY') ? skyobj[k.fcstValue] 
+              : (k.category === 'PTY') ? ptyobj[k.fcstValue]
+              : k.fcstValue + temp[0].단위}
+            </td>
         </tr>
         );
       }
@@ -103,7 +111,7 @@ const VilageFcst = () => {
       <article>
         <header>
         {/* <h1>{area}</h1> */}
-        <h2>{gubun}</h2>
+        <h2 className={styles.gubun}>{gubun}</h2>
         </header>
         <table>
           <thead>

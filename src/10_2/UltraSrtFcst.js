@@ -7,18 +7,21 @@ import styles from './Fcst.module.css';
 const UltraSrtFcst = () => {
   console.log("useParams", useParams());
   const dt = useParams().dt;
+  const hour = useParams().hour;
+  const minute = useParams().minute;
   const x = useParams().x;
   const y = useParams().y;
   const area = useParams().city;
-  const ops = useParams().ops;
+  //const ops = useParams().ops;
+
+
   //let {area} = useParams();
-  console.log("useParams",ops);
+  //console.log("useParams",ops);
 
   const [datas, setDatas] = useState();
   const [dataTag, setDataTag] = useState();
-  const [opTags, setOpTags] = useState();
+  //const [opTags, setOpTags] = useState();
 
-  const selhr = useRef();
 
   useEffect(() => {
     console.log("useEffect", datas);
@@ -37,7 +40,7 @@ const UltraSrtFcst = () => {
     url = url + `${gubunurl}`;
     url = url + `?serviceKey=${apikey}`;
     url = url + `&numOfRows=100&pageNo=1`;
-    url = url + `&base_date=${dt}&base_time=0600`;
+    url = url + `&base_date=${dt}&base_time=${hour}${minute}`;
     url = url + `&nx=${x}&ny=${y}`;
     url = url + '&dataType=json';
     console.log(url);
@@ -49,7 +52,7 @@ const UltraSrtFcst = () => {
       .catch((err) => console.log(err));
 
 
-      //패치 되는ㄴ 동안 수행
+      //패치 되는 동안 수행
       /*
       let temp = code.filter(c => c.항목값 === k.category && c.예보구분 === gubun);
       temp = temp.map((i) => 
@@ -70,16 +73,7 @@ const UltraSrtFcst = () => {
         
   }, []);
 
-//시간 선택
-const hr= [];
-  for(let i = 1; i <24; i=i+1) {
-    hr.push(  <option value={i}>{i}</option>);  
-  }
 
-console.log("selhr", selhr, hr);
-
-
-  
 
 
 
@@ -98,8 +92,8 @@ console.log("selhr", selhr, hr);
   
   console.log("datas1", datas1);
 
-  let skyobj = {'1':'☀', '2' : '⛅', '3' : '☁', '4' : '🌫', '5':'🌨'}
-  
+  let skyobj = {'1':'☀', '2' : '⛅', '3' : '☁', '4' : '🌫'}
+  let ptyobj = {'0':'없음', '1':'비', '2' : '비/눈', '3' : '눈', '4' : '소나기', '5':'빗방울', '6':'빗방울눈날림', '7':'눈날림'}
  
     setDataTag(  
       datas1.map((k, idx) => {
@@ -112,10 +106,9 @@ console.log("selhr", selhr, hr);
             <td>{k.fcstDate}</td>
             <td>{k.fcstTime}</td>
             <td>
-              {(k.category === 'SKY') ? skyobj[k.fcstValue] 
+            {(k.category === 'SKY') ? skyobj[k.fcstValue] 
+              : (k.category === 'PTY') ? ptyobj[k.fcstValue]
               : k.fcstValue + temp[0].단위}
-
-
             </td>
           </tr>
         );
@@ -138,18 +131,7 @@ console.log("selhr", selhr, hr);
           <h1>{area}</h1>
           <div className='grid'>
           <div><h1>{gubun}</h1></div>
-          <div className='grid'>
-                <select ref={selhr}>
-                  <option value=''>시</option> 시
-                  {/*      {ops}  */}
-                  {hr}
-                </select>
-                <select ref={selhr} >
-                  <option value=''>분</option> 분
-                  <option value='00'>00</option>
-                  <option value='30'>30</option>
-                </select>
-          </div>
+          
           </div>
         </header>
         <table>
