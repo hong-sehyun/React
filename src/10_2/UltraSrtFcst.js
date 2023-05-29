@@ -89,7 +89,7 @@ const UltraSrtFcst = () => {
   //filter, findIndex 사용하기(성공!)
   const datas1 = datas.filter((y, i) => datas.findIndex(x=>x.category === y.category) === i);
 
-  
+  //https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=dL2mQ3OFiO%2FkfihiQfLLxHCDmpSqXLfejo6d5WhFD%2FWYBPTd2Z5J5b0UL9n4nn%2BTTHig6ZSVnRKZfLPoV%2FUZxQ%3D%3D&numOfRows=100&pageNo=1&base_date=20230528&base_time=0900&nx=98&ny=76&dataType=json
   console.log("datas1", datas1);
 
   let skyobj = {'1':'☀', '2' : '⛅', '3' : '☁', '4' : '🌫'}
@@ -101,10 +101,11 @@ const UltraSrtFcst = () => {
         let temp = code.filter(c => c.항목값 === k.category && c.예보구분 === gubun);
 
         return (
-          <tr className='trd' key={'trd' + idx}>
+          <tr className='trd2' key={'trd2' + idx}>
             <td >{temp[0].항목명}</td>
             <td>{k.fcstDate}</td>
-            <td>{k.fcstTime}</td>
+            {/* <td>{k.fcstTime}</td> */}
+            <td>{hour}시{minute}분</td>
             <td>
             {(k.category === 'SKY') ? skyobj[k.fcstValue] 
               : (k.category === 'PTY') ? ptyobj[k.fcstValue]

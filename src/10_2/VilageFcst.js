@@ -84,7 +84,7 @@ const VilageFcst = () => {
         let temp = code.filter(c => c.항목값 === k.category && c.예보구분 === gubun);
 
         return (
-        <tr className='trd' key={'trd' + idx}>
+        <tr className='trd1' key={'trd1' + idx}>
           <td >{temp[0].항목명}</td>
           <td>{k.fcstDate}</td>
           {/* <td>{k.fcstTime}</td> */}
