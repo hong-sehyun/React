@@ -152,6 +152,7 @@ console.log("selmin", selmin, min);
                 </div>
                 
             </div>
+            <span className={styles.sp1}>※단기예보 시간 : 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300 (1일 8회)</span>
             <footer>
                 <div className="grid">
                     <Link to={`/ultra/${dt}/${hour}/${minute}/${area}/${x}/${y}`} role='button' onChange={() => {}} className="outline" id={styles.bt1}>초단기예보</Link>
